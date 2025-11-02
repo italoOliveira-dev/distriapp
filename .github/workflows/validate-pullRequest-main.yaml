@@ -1,0 +1,19 @@
+name: Validação de pull requests para branch main
+
+on:
+  pull_request: 
+    branches: 
+      - main
+
+jobs:
+  check-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar branch de origem
+        if: github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref != 'develop'
+        run: |
+          echo "❌ Apenas merges da branch develop são permitidos na main."
+          exit 1
+      - name: Aprovação
+        if: github.event.pull_request.head.ref == 'develop'
+        run: echo "✅ PR válido — origem da develop"
