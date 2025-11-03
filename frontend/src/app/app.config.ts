@@ -2,7 +2,7 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChang
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import { provideRouter } from '@angular/router';
-import Aura from '@primeuix/themes/aura';
+import Material from '@primeuix/themes/material';
 
 import { routes } from './app.routes';
 
@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura
+        preset: Material
       }
     })
   ]
